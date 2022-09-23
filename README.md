@@ -3,3 +3,6 @@
 #### GENRE : Horreur, fantastique
 #### INSPIRATION : Sans objet
 #### PALETTE DE COULEURS : [coolors.co](https://coolors.co/eadeda-998888-bfb8ad-823329-8a3033)
+
+## DIAGRAME
+![img/assets/schema.png)
