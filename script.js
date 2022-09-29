@@ -10,8 +10,8 @@ const chaptersObj = {
     text: " Il se réveille, prend-t-il une arme à feu?",
     img: "chambre0",
     options: [
-      (choix1 = { text: "option 1", action: goToChapter("CHAMBRE") }),
-      (choix2 = { text: "option 2", action: goToChapter("CHAMBRE") }),
+      (choix1 = { text: "option 1", action: 'goToChapter("CHAMBRE")' }),
+      (choix2 = { text: "option 2", action: 'goToChapter("CHAMBRE")' }),
     ],
   },
   ObjChapitre1: {
@@ -19,9 +19,9 @@ const chaptersObj = {
     text: " Il doit choisir une première porte et vite, le temps presse!",
     img: "chambre",
     options: [
-      (choix1 = { text: "option 1", action: goToChapter("RÉVEILLE") }),
-      (choix2 = { text: "option 2", action: goToChapter("RÉVEILLE") }),
-      (choix3 = { text: "option 3", action: goToChapter("CUISINE") }),
+      (choix1 = { text: "option 1", action: 'goToChapter("RÉVEILLE")' }),
+      (choix2 = { text: "option 2", action: 'goToChapter("RÉVEILLE")' }),
+      (choix3 = { text: "option 3", action: 'goToChapter("CUISINE")' }),
     ],
   },
   ObjChapitre2: {
@@ -29,8 +29,8 @@ const chaptersObj = {
     text: "Il a su prendre la bonne déscion, ou presque, la bonne porte l'a mené à ce qui ressemble à une cuisine. Seulement 2 portes sont à sa disposition.",
     img: "cuisine",
     options: [
-      (choix1 = { text: "option 1", action: goToChapter("ESCAlIER") }),
-      (choix2 = { text: "option 2", action: goToChapter("RÉVEILLE") }),
+      (choix1 = { text: "option 1", action: 'goToChapter("ESCAlIER") ' }),
+      (choix2 = { text: "option 2", action: 'goToChapter("RÉVEILLE")' }),
     ],
   },
   ObjChapitre3: {
@@ -38,10 +38,10 @@ const chaptersObj = {
     text: "Il a de nouveau réussi à survivre, cependant, il n'est toujours pas sortie du deuxième étage et il croit bien que derrière 1 de ces 4 portes ce trouve un escalier.",
     img: "escalier",
     options: [
-      (choix1 = { text: "option 1", action: goToChapter("RÉVEILLE") }),
-      (choix2 = { text: "option 2", action: goToChapter("RÉVEILLE") }),
-      (choix3 = { text: "option 3", action: goToChapter("RÉVEILLE") }),
-      (choix3 = { text: "option 4", action: goToChapter("GARAGE") }),
+      (choix1 = { text: "option 1", action: 'goToChapter("RÉVEILLE")' }),
+      (choix2 = { text: "option 2", action: 'goToChapter("RÉVEILLE")' }),
+      (choix3 = { text: "option 3", action: 'goToChapter("RÉVEILLE")' }),
+      (choix3 = { text: "option 4", action: 'goToChapter("GARAGE")' }),
     ],
   },
   ObjChapitre4: {
@@ -49,9 +49,9 @@ const chaptersObj = {
     text: "Une chance qu'il a fait de la gymnastique étant jeune, sans cela le décès aurait été imminent. Voici les dernières portes avant de pouvoir enfin sortir de cet enfer, attention de bien choisir.",
     img: "garage",
     options: [
-      (choix1 = { text: "option 1", action: goToChapter("FIN") }),
-      (choix2 = { text: "option 2", action: goToChapter("RÉVEILLE") }),
-      (choix3 = { text: "option 3", action: goToChapter("RÉVEILLE") }),
+      (choix1 = { text: "option 1", action: 'goToChapter("FIN")' }),
+      (choix2 = { text: "option 2", action: 'goToChapter("RÉVEILLE")' }),
+      (choix3 = { text: "option 3", action: 'goToChapter("RÉVEILLE")' }),
     ],
   },
   ObjChapitreFin: {
