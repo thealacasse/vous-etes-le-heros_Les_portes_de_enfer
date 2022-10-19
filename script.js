@@ -1,3 +1,5 @@
+"use strict";
+
 const chaptersObj = {
   ObjDebut: {
     subtitle: "Seriez-vous capable d'en sortir?",
@@ -24,9 +26,18 @@ const chaptersObj = {
     img: "assets/chambre.jpg",
     alt: "image de chambre",
     options: [
-      { text: "Porte 1", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 2", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 3", action: 'goToChapter("ObjChapitreCuisine")' },
+      {
+        text: "Boire le contenu d'une bouteille",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Traverser un corridor rempli de serpents venimeux",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Il y a peut-être un ours derrière",
+        action: 'goToChapter("ObjChapitreCuisine")',
+      },
     ],
   },
   ObjChapitreCuisine: {
@@ -35,10 +46,14 @@ const chaptersObj = {
     img: "assets/cuisine.png",
     alt: "image de cuisine",
     options: [
-      { text: "Porte 1", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 2", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 3", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 4", action: 'goToChapter("ObjChapitreEscalier")' },
+      {
+        text: "N'est pas peur, prend cette porte",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Traverser un corridor rempli de gaz mortels",
+        action: 'goToChapter("ObjChapitreEscalier")',
+      },
     ],
   },
   ObjChapitreEscalier: {
@@ -47,8 +62,22 @@ const chaptersObj = {
     img: "assets/escalier.png",
     alt: "image d'escalier",
     options: [
-      { text: "Porte 1", action: 'goToChapter("ObjChapitreGarage")' },
-      { text: "Porte 2", action: 'goToChapter("ObjChapitreReveille")' },
+      {
+        text: "Fait un pacte de sang avec le diable",
+        action: 'goToChapter("ObjChapitreGarage")',
+      },
+      {
+        text: "J'espère que tu n'as pas peur du noir",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Couloir contaminer d'une nouvelle variante de Covid-19",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Corridor rempli de rayons laser",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
     ],
   },
   ObjChapitreGarage: {
@@ -57,9 +86,18 @@ const chaptersObj = {
     img: "assets/garage.jpg",
     alt: "image du garage",
     options: [
-      { text: "Porte 1", action: 'goToChapter("ObjChapitreFin")' },
-      { text: "Porte 2", action: 'goToChapter("ObjChapitreReveille")' },
-      { text: "Porte 3", action: 'goToChapter("ObjChapitreReveille")' },
+      {
+        text: "Dit au revoir à ta vie",
+        action: 'goToChapter("ObjChapitreFin")',
+      },
+      {
+        text: "Rien de plus facile que de sortir par la porte de garage;)",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
+      {
+        text: "Prend une cuiellère de cannelle",
+        action: 'goToChapter("ObjChapitreOups")',
+      },
     ],
   },
   ObjChapitreFin: {
@@ -68,6 +106,15 @@ const chaptersObj = {
     img: "assets/fin.png",
     alt: "image de la fin",
     options: [{ text: "Recommencer", action: 'goToChapter("ObjDebut")' }],
+  },
+  ObjChapitreOups: {
+    subtitle: "MAUVAISE PORTE!",
+    text: " VEUILLEZ RÉESSAYER",
+    //img: "assets/reveille.png",
+    //alt: "image de reveille",
+    options: [
+      { text: "RECOMMENCER", action: 'goToChapter("ObjChapitreReveille")' },
+    ],
   },
 };
 
@@ -112,4 +159,3 @@ let goToChapter = function (chapterName) {
 };
 
 goToChapter("ObjDebut");
-  
