@@ -34,34 +34,16 @@ span.sousTitre {
 }
 
 .boutons {
-  width: 550px;
-  height: 550px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}
-.b1 {
-  background-color: rgb(199, 174, 140);
   border: none;
   width: 160px;
   height: 60px;
   border-radius: 3px;
 }
-.b2 {
-  background-color: rgb(199, 174, 140);
-  border: none;
-  width: 160px;
-  height: 60px;
-  border-radius: 3px;
-}
-.b3 {
-  background-color: rgb(199, 174, 140);
-  border: none;
-  width: 160px;
-  height: 60px;
-  border-radius: 3px;
-}
+
 .image {
   display: flex;
   flex-direction: column;
