@@ -1,4 +1,5 @@
 "use strict";
+var TakeTheGun = "Non"; 
 
 const chaptersObj = {
   ObjDebut: {
@@ -7,7 +8,7 @@ const chaptersObj = {
     img: "assets/Backdorms.jpg",
     alt: "image de Backdorms",
     options: [
-      { text: "COMMENCER", action: 'goToChapter("ObjChapitreReveille")' },
+      { text: "COMMENCER", action: 'aVotreGuiseHaHa("ObjChapitreReveille")' },
     ],
   },
   ObjChapitreReveille: {
@@ -16,8 +17,8 @@ const chaptersObj = {
     img: "assets/reveille.png",
     alt: "image de reveille",
     options: [
-      { text: "Oui", action: 'goToChapter("ObjChapitreChambre")' },
-      { text: "Non", action: 'goToChapter("ObjChapitreChambre")' },
+      { text: "Oui", action: 'ChangeVarAndGoToNextChapter("ObjChapitreChambre")' },
+      { text: "Non", action: 'aVotreGuiseHaHa("ObjChapitreChambre")' },
     ],
   },
   ObjChapitreChambre: {
@@ -28,75 +29,75 @@ const chaptersObj = {
     options: [
       {
         text: "Boire le contenu d'une bouteille",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "Traverser un corridor rempli de serpents venimeux",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "Il y a peut-être un ours derrière",
-        action: 'goToChapter("ObjChapitreCuisine")',
+        action: 'aVotreGuiseHaHa("ObjChapitreCuisine")',
       },
     ],
   },
   ObjChapitreCuisine: {
     subtitle: "2eme pièce: LA CUISINE",
-    text: "Il a su prendre la bonne déscion, ou presque, la bonne porte l'a mené à ce qui ressemble à une cuisine. cependant, il n'est toujours pas sorti du deuxième étage et il croit bien que derrière 1 de ces 4 portes ce trouve un escalier.",
+    text: "Il a su prendre la bonne déscion, ou presque, la bonne porte l'a mené à ce qui ressemble à une cuisine. cependant, il n'est toujours pas sorti du deuxième étage et il croit bien que derrière 1 de ces 2 portes ce trouve un escalier.",
     img: "assets/cuisine.png",
     alt: "image de cuisine",
     options: [
       {
-        text: "N'est pas peur, prend cette porte",
-        action: 'goToChapter("ObjChapitreOups")',
+        text: "N'est pas peur, prend cette porte...",
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "Traverser un corridor rempli de gaz mortels",
-        action: 'goToChapter("ObjChapitreEscalier")',
+        action: 'aVotreGuiseHaHa("ObjChapitreEscalier")',
       },
     ],
   },
   ObjChapitreEscalier: {
     subtitle: "3eme pièce: L'ESCALIER",
-    text: "Il a de nouveau réussi à survivre. Seulement 2 portes sont à sa disposition.",
+    text: "Il a de nouveau réussi à survivre! En bas de l'escalier se trouve 4 portes, choisi bien.",
     img: "assets/escalier.png",
     alt: "image d'escalier",
     options: [
       {
         text: "Fait un pacte de sang avec le diable",
-        action: 'goToChapter("ObjChapitreGarage")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "J'espère que tu n'as pas peur du noir",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
-        text: "Couloir contaminer d'une nouvelle variante de Covid-19",
-        action: 'goToChapter("ObjChapitreOups")',
+        text: "Couloir contaminé d'une nouvelle variante de Covid-19",
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "Corridor rempli de rayons laser",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreGarage")',
       },
     ],
   },
   ObjChapitreGarage: {
     subtitle: "4eme et finale pièce: LE GARAGE",
-    text: "Une chance qu'il a fait de la gymnastique étant jeune, sans cela le décès aurait été imminent. Voici les dernières portes avant de pouvoir enfin sortir de cet enfer, attention de bien choisir.",
+    text: "Une chance qu'il a fait de la gymnastique étant jeune, sans cela le décès aurait été imminent. Il se retrouve dans un parking de garage, voici les dernières portes avant de pouvoir enfin sortir de cet enfer, attention de bien choisir.",
     img: "assets/garage.jpg",
     alt: "image du garage",
     options: [
       {
         text: "Dit au revoir à ta vie",
-        action: 'goToChapter("ObjChapitreFin")',
+        action: 'aVotreGuiseHaHa("ObjChapitreFin")',
       },
       {
         text: "Rien de plus facile que de sortir par la porte de garage;)",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
       {
         text: "Prend une cuiellère de cannelle",
-        action: 'goToChapter("ObjChapitreOups")',
+        action: 'aVotreGuiseHaHa("ObjChapitreOups")',
       },
     ],
   },
@@ -105,41 +106,47 @@ const chaptersObj = {
     text: "Bravooo",
     img: "assets/fin.png",
     alt: "image de la fin",
-    options: [{ text: "Recommencer", action: 'goToChapter("ObjDebut")' }],
+    options: [{ text: "RECOMMENCER NOUVELLE PARTIE", action: 'aVotreGuiseHaHa("ObjDebut")' }],
   },
+  
   ObjChapitreOups: {
     subtitle: "MAUVAISE PORTE!",
     text: " VEUILLEZ RÉESSAYER",
-    //img: "assets/reveille.png",
-    //alt: "image de reveille",
+    img: "assets/oups.png",
+    alt: "image de salle",
     options: [
-      { text: "RECOMMENCER", action: 'goToChapter("ObjChapitreReveille")' },
+      { text: "RECOMMENCER", action: 'aVotreGuiseHaHa("ObjChapitreReveille")' },
     ],
   },
 };
 
+
 let goToChapter = function (chapterName) {
-  // console.log(chaptersObj.ObjChapitre0.subtitle);
+  if (chapterName == "ObjDebut"){
+    TakeTheGun = "Non";
+    console.log('goToChapter: TakeTheGun est changée a ' + TakeTheGun);
+  }
+  //console.log(chaptersObj.ObjChapitre0.subtitle);
   //console.log(chaptersObj.ObjChapitre0.text);
 
   //console.log(chaptersObj[chapterName]["subtitle"]);
-  // console.log(chaptersObj[chapterName]["text"]);
-
+  //console.log(chaptersObj[chapterName]["text"]);
+  //console.log("A0");
   let st0 = document.getElementsByClassName("sousTitre")[0];
   st0.innerHTML = chaptersObj[chapterName]["subtitle"];
-
+  //console.log("A1");
   let sy0 = document.getElementsByClassName("synopsis")[0];
   sy0.innerHTML = chaptersObj[chapterName]["text"];
-
+  //console.log("A2");
   document.getElementsByClassName("UneImage")[0].src =
     chaptersObj[chapterName]["img"];
   document.getElementsByClassName("UneImage")[0].alt =
     chaptersObj[chapterName]["alt"];
 
-  // Enleve tous les boutons si ils existent   https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
-
+  // Enleve tous les boutons si ils existent  source: https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
   var node = document.getElementsByClassName("boutons")[0];
   node.querySelectorAll("*").forEach((n) => n.remove());
+
 
   //Loop dans tableau f. pour créer les boutons
   const tableauOptions = chaptersObj[chapterName].options;
@@ -158,4 +165,38 @@ let goToChapter = function (chapterName) {
   }
 };
 
+
+
+
+let ChangeVarAndGoToNextChapter = function () {
+  console.log('ChangeVarAndGoToNextChapter: variable TakeTheGun est à ' + TakeTheGun);
+  TakeTheGun = "Oui";
+  console.log('ChangeVarAndGoToNextChapter: variable TakeTheGun est changée à ' + TakeTheGun);
+  goToChapter("ObjChapitreChambre");
+  
+};
+
+
+let aVotreGuiseHaHa= function (prochainChapirte) {
+  console.log('aVotreGuiseHaHa: TakeTheGun est ' + TakeTheGun);
+  if (TakeTheGun == "Oui") {
+    //goToChapter("ObjChapitreCuisine");
+    goToChapter(prochainChapirte);
+  }else{
+   //goToChapter("ObjChapitreOups");
+     goToChapter(prochainChapirte);
+  }
+ 
+};
+
+
 goToChapter("ObjDebut");
+
+/*const btncommencez = document.getElementById("b1");
+
+if (btncommencez != null) {
+  alert("khjg");
+  btncommencez.addEvenListener("click", function () {
+    window.location.href = "reveille.html";
+  });
+}*/
