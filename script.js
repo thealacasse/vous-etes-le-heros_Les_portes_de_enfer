@@ -1,11 +1,12 @@
 "use strict";
-var TakeTheGun = "Non"; 
+
 
 const chaptersObj = {
   ObjDebut: {
     subtitle: "Seriez-vous capable d'en sortir?",
     text: "Il se réveilla dans une chambre vide sans issus et trouva une note sur un des 4 murs de la pièce 'Choisis judicieusement ou malheur à toi' Sur chaque porte se retrouve une idée de ce qu'il va devoir traverser/faire pour passer à la prochaine pièce et avoir une chance de s'en sortir.",
     img: "assets/Backdorms.jpg",
+    video:"assets/Video_Debut.mp4",
     alt: "image de Backdorms",
     options: [
       { text: "COMMENCER", action: 'aVotreGuiseHaHa("ObjChapitreReveille")' },
@@ -113,19 +114,32 @@ const chaptersObj = {
     subtitle: "MAUVAISE PORTE!",
     text: " VEUILLEZ RÉESSAYER",
     img: "assets/oups.png",
+    video:"assets/Video_Dead.mp4",
     alt: "image de salle",
     options: [
-      { text: "RECOMMENCER", action: 'aVotreGuiseHaHa("ObjChapitreReveille")' },
+      { text: "RECOMMENCER", action: 'aVotreGuiseHaHa("ObjDebut")' },
     ],
   },
 };
 
 
 let goToChapter = function (chapterName) {
+
+   localStorage.setItem("chapitre_a_afficher",chapterName);
+   console.log('localStorage changé à: ' + localStorage.getItem("chapitre_a_afficher",chapterName));
+
   if (chapterName == "ObjDebut"){
+
     TakeTheGun = "Non";
+    localStorage.setItem("TakeTheGun","Non");
     console.log('goToChapter: TakeTheGun est changée a ' + TakeTheGun);
+  }else{
+    
+    document.getElementById("AudioChangeChapitre").load(); 
+
   }
+
+
   //console.log(chaptersObj.ObjChapitre0.subtitle);
   //console.log(chaptersObj.ObjChapitre0.text);
 
@@ -138,10 +152,43 @@ let goToChapter = function (chapterName) {
   let sy0 = document.getElementsByClassName("synopsis")[0];
   sy0.innerHTML = chaptersObj[chapterName]["text"];
   //console.log("A2");
-  document.getElementsByClassName("UneImage")[0].src =
-    chaptersObj[chapterName]["img"];
-  document.getElementsByClassName("UneImage")[0].alt =
-    chaptersObj[chapterName]["alt"];
+
+
+   // let result = 'video' in chaptersObj[chapterName];
+   // result = chaptersObj[chapterName].hasOwnProperty('video');
+   // result = chaptersObj[chapterName].video !== undefined;
+
+   const Myelement = document.getElementById("ImageOuVideo");
+  if ('video' in chaptersObj[chapterName]){
+    //const MyImage = document.getElementById("ImageOuVideo");
+    Myelement.remove();
+
+
+    let videoSource ="<video id=\"ImageOuVideo\" class=\"UnVideo\" src=\""  + chaptersObj[chapterName].video +  "\" loop muted autoplay style=\"width:90%;height:50%;\"></video>"
+    console.log(videoSource);
+
+    const MyVideo = document.getElementsByClassName("image")[0];
+    MyVideo.insertAdjacentHTML("afterbegin", videoSource);
+
+
+  }else {
+ 
+    const MyVideo = document.getElementById("ImageOuVideo");
+    MyVideo.remove();
+
+    let imageSource ="<img id=\"ImageOuVideo\" class=\"UneImage\" src=\"" + chaptersObj[chapterName]["img"]+"\" alt=\"\" style=\"width:90%;height:50%;\"></img>"
+    console.log(imageSource);
+
+    const MyImage = document.getElementsByClassName("image")[0];
+    MyImage.insertAdjacentHTML("afterbegin", imageSource);
+
+  //  document.getElementsByClassName("UneImage")[0].src =
+  //  chaptersObj[chapterName]["img"];
+  // document.getElementsByClassName("UneImage")[0].alt =
+  //  chaptersObj[chapterName]["alt"];
+  }
+
+
 
   // Enleve tous les boutons si ils existent  source: https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
   var node = document.getElementsByClassName("boutons")[0];
@@ -171,6 +218,7 @@ let goToChapter = function (chapterName) {
 let ChangeVarAndGoToNextChapter = function () {
   console.log('ChangeVarAndGoToNextChapter: variable TakeTheGun est à ' + TakeTheGun);
   TakeTheGun = "Oui";
+  localStorage.setItem("TakeTheGun","Oui");
   console.log('ChangeVarAndGoToNextChapter: variable TakeTheGun est changée à ' + TakeTheGun);
   goToChapter("ObjChapitreChambre");
   
@@ -190,13 +238,38 @@ let aVotreGuiseHaHa= function (prochainChapirte) {
 };
 
 
-goToChapter("ObjDebut");
+// Début du chargement de la page
 
-/*const btncommencez = document.getElementById("b1");
+var TakeTheGun = ""; 
+//localStorage.clear();
 
-if (btncommencez != null) {
-  alert("khjg");
-  btncommencez.addEvenListener("click", function () {
-    window.location.href = "reveille.html";
-  });
-}*/
+var chapitre_a_afficher = localStorage.getItem("chapitre_a_afficher");
+console.log("Premiere lecture du LocalStorage: " + chapitre_a_afficher);
+
+//console.log('Type of chapitre_a_afficher=' + typeof chapitre_a_afficher);
+//console.log('chapitre_a_afficher.length=' + chapitre_a_afficher.length);
+
+
+if (localStorage.getItem("TakeTheGun") !== null){
+  TakeTheGun = localStorage.getItem("TakeTheGun");
+} else{
+  TakeTheGun = "Non"; 
+}
+console.log("Premiere lecture du TakeTheGun: " + TakeTheGun);
+
+if ( chapitre_a_afficher !== null){  
+
+  console.log("partir du " + chapitre_a_afficher);
+  goToChapter(chapitre_a_afficher);
+  
+    
+  }else{
+    console.log("partir du ObjDebut");
+    goToChapter("ObjDebut");
+
+    
+  }
+
+
+chapitre_a_afficher = localStorage.getItem("chapitre_a_afficher");
+console.log("Apres goToChapter LocalStorage = " + chapitre_a_afficher);
