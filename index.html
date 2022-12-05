@@ -10,29 +10,37 @@
   />
   
   </head>
-  <body>
+  <body >
+    
     
     <div class="game">
-    <span class="titre">LES PORTES DE L'ENFER</span>
-    <span class="sousTitre" >
-      <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    </span>
-  
-    <span class="synopsis"> </span>
- 
+        <span class="titre">LES PORTES DE L'ENFER</span>
+        <span class="sousTitre" >
+          <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+        </span>
+      
+        <span class="synopsis"> </span>
     
-    <div class="image">
-      <img id="ImageOuVideo"></img>
-    </div>
+        
+        <div class="image">
+          <img id="ImageOuVideo"></img>
+        </div>
 
-    <div class="boutons">
-    </div>
+        <div class="boutons">
+          
+        </div>
  
-    
+        <button onclick="reset()" id="btn_effacer" type="button">Effacer ma partie</button>
+
+        <div class="check">
+          <input type="checkbox" id="AudioCheckBox" checked=true onclick="SetAudioVariable()">Son
+        </div> 
+
     </div>
-  </div>
-  </div>
-  <audio id="AudioChangeChapitre" src="assets/ChangeChapitre.mp3" autoplay></audio>
+    
+<audio id="AudioChangeChapitre" src="assets/ChangeChapitre.mp3" autoplay="true" ></audio>
+
+
   
   <script src="script.js"></script>
 
