@@ -8,10 +8,32 @@ html {
   height: 100vh;
   align-items: center;
 }
+
+body {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.ObjChapitreOups {
+  background-color: rgb(162, 40, 40);
+}
+
+.ObjChapitreEscalier {
+  background-color: rgb(255, 138, 138);
+}
+
+.ObjChapitreFin {
+  background-color: rgb(255, 213, 0);
+}
+
 .game {
   background-color: rgb(48, 6, 6);
-  width: 600px;
-  height: 800px;
+  width: 700px;
+  height: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,11 +56,13 @@ span.sousTitre {
 }
 
 .boutons {
-  color: rgb(237, 220, 195);
+  font-family: "Cinzel", serif;
+  color: rgb(156, 121, 68);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  border-radius: 1%;
 }
 
 .image {
@@ -46,6 +70,20 @@ span.sousTitre {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+
+.check {
+  color: rgb(156, 121, 68);
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding: 20px;
+}
+
+#btn_effacer {
+  color: rgb(156, 121, 68);
+  font-family: "Cinzel", serif;
+  padding: 5px;
 }
 
 span.synopsis {
